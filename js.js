@@ -213,24 +213,53 @@ function calMonto() {
     Total.style.display = "block";
     
 }
-const exampleModal = document.getElementById('exampleModal')
-if (exampleModal) {
-    exampleModal.addEventListener('show.bs.modal', event => {
-    const button = event.relatedTarget
-    let idUpdate = button.getAttribute('idUs')
-    let nameUpdate = button.getAttribute('nameUs')
-    let telUpdate = button.getAttribute('telUs')
-    let dirUpdate = button.getAttribute('dirUs')
-    let bajaUpdate = button.getAttribute('bajaUs')
+// Modal bootstrap editar 
+const editM = document.getElementById('editModal');
+if (editM) {
+    editM.addEventListener('show.bs.modal', event => {
+    // Boton del modal
+    const button = event.relatedTarget;
+    // Extra info del usuario
+    let name = button.getAttribute('nameToEdit');
+    let id = button.getAttribute('idToEdit');
+    let tel = button.getAttribute('telToEdit');
+    let dir = button.getAttribute('dirToEdit');
+    let baja = button.getAttribute('bajaToEdit');
 
-    // const modalBodyInput = exampleModal.querySelector('.modal-body input')
-    // modalBodyInput.value = idUpdate
-
-    document.getElementById('UsID').value = idUpdate
-    document.getElementById('UsName').value = nameUpdate
-    document.getElementById('UsTel').value = telUpdate
-    document.getElementById('UsDir').value = dirUpdate
-    document.getElementById('UsBaja').value = bajaUpdate
-
+    // Actualiza modal
+    const modalTitle = editM.querySelector('.modal-title');
+    modalTitle.textContent = "Edición de usuario: " + name;
+    const idsp = editM.querySelector('#idUser');
+    idsp.textContent = id;
+    const idUs = editM.querySelector('#idUsr');
+    idUs.value = id;
+    const modalBodyInputName = editM.querySelector('#name');
+    modalBodyInputName.value = name;
+    const modalBodyInputTel = editM.querySelector('#tel');
+    modalBodyInputTel.value = tel;
+    const modalBodyInputDir = editM.querySelector('#dir');
+    modalBodyInputDir.value = dir;
+    const modalCheckActive = editM.querySelector('#success-outlined');
+    const modalCheckInactive = editM.querySelector('#danger-outlined');
+    let status = editM.querySelector('#status');
+    if (baja === "0") {
+        modalCheckActive.checked = true;
+        modalCheckInactive.checked = false;
+        status.value = "0";
+    } else if (baja === "1") {
+        modalCheckActive.checked = false;
+        modalCheckInactive.checked = true;
+        status.value = "1";
+    }
+    if (modalCheckActive) {
+        modalCheckActive.addEventListener('click', function(){
+            status.value = "0";
+        })
+    }
+    if (modalCheckInactive) {
+        modalCheckInactive.addEventListener('click', function(){
+            status.value = "1";
+        })
+    }
     })
 }

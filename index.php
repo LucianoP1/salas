@@ -34,7 +34,6 @@
           </div>
         </div>
       </div>
-
       <div class="d-none d-lg-block">
         <div class="d-flex flex-row-reverse">  
             <div class="my-2 no-underline" type="button" >
@@ -58,10 +57,11 @@
       </div>
     </nav>
     <hr style="margin: .0%; border-color: rgb(0, 61, 125); opacity: 1; border-width: 12px;">
-
+    
 <!--Alertas---------------------------------------------------------------------------------------------->
     <?php if(isset($_SESSION['registro'])){ ?>
-      <div class="alert alert-success text-primary m-0 alert-dismissible" id="registro-success" role="alert">
+      <div class="alert alert-success text-primary m-0 alert-dismissible alert-dismissible fade show" data-bs-dismiss="alert" id="registro-success" role="alert">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         <?= $_SESSION['registro'] ?>
       </div>
       <hr style="margin: .0%; border-color: rgb(0, 61, 125); opacity: 1; border-width: 12px;">   
@@ -69,13 +69,15 @@
         unset($_SESSION['registro']);
     }?>
         <?php if(isset($_SESSION['login'])){ ?>
-      <div class="alert alert-danger m-0 alert-dismissible" id="registro-success" role="alert">
+          <div class="alert alert-success text-primary m-0 alert-dismissible alert-dismissible fade show" data-bs-dismiss="alert" id="registro-success" role="alert">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         <?= $_SESSION['login'] ?>
       </div>
       <hr style="margin: .0%; border-color: rgb(0, 61, 125); opacity: 1; border-width: 12px;">    
     <?php 
         unset($_SESSION['login']);
     }?>
+
 <!--Carousel---------------------------------------------------------------------------------------------->
       <div class="mx-auto" style="display:block;">
         <div id="carouselExample" class="carousel slide carousel">
@@ -102,7 +104,6 @@
                       <button type="button" id="btn2" disabled class="btn btn-primary fs-5">Reservar (Regístrate para reservar)</button>
                   <?php endif; ?>
                   </div>
-
               </div>
             </div>
             <div class="carousel-item">
@@ -149,11 +150,9 @@
                 <button class="btn-close rounded-3 bg-white" data-bs-dismiss="modal"></button>
               </div>
               <div class="moda-body bg-white text-center">
-                
                   <div class="mx-auto m-3">
                       <img src="Usuario/Login.png" alt="Login-icon", style="height: 6rem;">
                   </div>
-                  
                   <div class="my-4"> 
                     <h3 class="text-primary fw-bold">Login</h3> 
                   </div>
@@ -178,14 +177,19 @@
                     <button class="btn btn-danger col rounded-3 shadow" data-bs-dismiss="modal">Cancelar</button>
                   </div>
                 </div>
-                  
               </div>
             </div>
           </div>
         </div>
       </div>
 
-<!--Footer---------------------------------------------------------------------------------------------->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <script src="js.js"></script>
+      </body>
+
+      <!--Footer---------------------------------------------------------------------------------------------->
       <footer>
         <div class="card bg-primary-subtle">
           <div class="card-body text-success">
@@ -193,16 +197,9 @@
             <p class="card-text text-secondary"><a href="Nosotros/acercaDe.html" class="link-offset-2 link-secondary link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-0-hover">Acerca de</a></p>
             <p class="card-text text-secondary"><a href="https://api.whatsapp.com/send?phone=0541124511415" class="link-offset-2 link-secondary link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-0-hover">Contactanos</a></p>
           </div>
-
           <div class="card-footer bg-primary-subtle border-success">
             © 2023 Elegant Technology. Todos los derechos reservados.
           </div>
       </div>
       </footer>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-        <script src="js.js"></script>
-      </body>
     </html>

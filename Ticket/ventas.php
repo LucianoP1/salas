@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <!--Navbar---------------------------------------------------------------------------------------------->
     <nav class="navbar navbar-expand-lg p-1 bg-primary-subtle" id="carouselIndex">
         <div class="container-fluid">
@@ -24,7 +25,7 @@
                     <li class="nav-item">
                         <?php if (isset($_SESSION['user_name'])) : ?>
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <a class="nav-link text-primary-emphasis pe-4 pe-lg-1 " href="./Usuario/menu.php"><?= htmlspecialchars($_SESSION['user_name']); ?></a>
+                                <a class="nav-link text-primary-emphasis pe-4 pe-lg-1 " href="../Usuario/menu.php"><?= htmlspecialchars($_SESSION['user_name']); ?></a>
                                 <a href="../controllers/logout.php" class="btn btn-outline-danger lg-1" id="Salir">Salir</a>
                             </div>
                         <?php else : ?>
@@ -39,7 +40,6 @@
     <hr style="margin: .0%; border-color: rgb(0, 61, 125); opacity: 1; border-width: 12px;">
 
     <!--Formulario de reserva------------------------------------------------------------------------------>
- 
     <div class="container-fluid d-flex justify-content-center border border-warning border-3 mt-1 p-2 mb-2 border-opacity-25" id="contenedor_Venta">
         <form id="miFormulario" action="../Server/ProcesoCompra.html" method="post">
             <div class="row m-3 mx-auto bg-primary-subtle opacity-50 rounded-3">
@@ -48,24 +48,24 @@
                 </div>
                 <div class="col-12">
                     <label class="form-check-label" for="canPersonas">Cantidad de personas</label>
-                    <input class="form-control rounded-3 m-2 shadow" type="number" placeholder="Mínimo 2" min="1" max="2" id="canPersonas" name="canPersonas" style="max-width: 150px;">
+                    <input class="form-control rounded-3 m-2 shadow" type="number" placeholder="Mínimo 2" min="1" max="2" id="canPersonas" name="canPersonas" style="max-width: 150px; font-size: 20px; font-weight: 600; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
                 </div>
                 <div class="col-12">
                     <input class="form-check-input" type="checkbox" value="desayuno" id="chkDesayuno" disabled>
                     <label class="form-check-label" for="chkDesayuno">Desayuno</label>
-                    <input class="form-control rounded-3 m-2" type="number" id="cantidadDesayuno" min="0" max="1" style="max-width: 120px; display: none; " placeholder="Cantidad">
+                    <input class="form-control rounded-3 m-2" type="number" id="cantidadDesayuno" min="0" max="1" style="max-width: 150px; font-size: 20px; font-weight: 600; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; display: none; " placeholder="Cantidad">
                     <span id="desayunoText" style="display: none;">El valor por persona es de 5 U$S.</span>
                 </div>
                 <div class="col-12">
                     <input class="form-check-input" type="checkbox" value="almuerzo" id="chkAlmuerzo" disabled>
                     <label class="form-check-label" for="chkAlmuerzo">Almuerzo</label>
-                    <input class="form-control rounded-3 m-2" type="number" id="cantidadAlmuerzo" min="0" max="1" style="max-width: 120px; display: none;" placeholder="Cantidad">
+                    <input class="form-control rounded-3 m-2" type="number" id="cantidadAlmuerzo" min="0" max="1" style="max-width: 150px; font-size: 20px; font-weight: 600; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; display: none;" placeholder="Cantidad">
                     <span id="almuerzoText" style="display: none;">El valor por persona es de 10 U$S.</span>
                 </div>
                 <div class="col-12">
                     <input class="form-check-input" type="checkbox" value="Barra" id="chkBarra" disabled>
                     <label class="form-check-label" for="chkBarra">Barra de bebidas</label>
-                    <input class="form-control rounded-3 m-2" type="number" id="cantidadBarra" style="max-width: 120px; display: none;" min="0" max="1" placeholder="Cantidad">
+                    <input class="form-control rounded-3 m-2" type="number" id="cantidadBarra" style="max-width: 150px; font-size: 20px; font-weight: 600; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; display: none;" min="0" max="1" placeholder="Cantidad">
                     <span id="barraText" style="display: none;">El valor por persona es de 8 U$S.</span>
                 </div>
                 <div class="col-12 m-1 fs-5">
@@ -83,7 +83,9 @@
     </div>
     <!--Footer---------------------------------------------------------------------------------------------->
     <footer>
+        
         <div class="card bg-primary-subtle fixed-bottom">
+        <hr style="margin: 0%; border-color: rgb(0, 61, 125); opacity: 1; border-width: 12px;">
             <div class="card-body text-success">
 
                 <p class="card-text text-secondary"><a href="../Nosotros/acercaDe.html" class="link-offset-2 link-secondary link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-0-hover">Acerca de</a></p>

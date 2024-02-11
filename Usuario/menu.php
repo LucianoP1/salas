@@ -34,7 +34,9 @@
     <hr style="margin: .0%; border-color: rgb(0, 61, 125); opacity: 1; border-width: 12px;">
 
     <?php if (isset($_SESSION['edit'])) { ?>
-        <div class="alert alert-success text-primary m-0 alert-dismissible" id="registro-success" role="alert">
+        <div class="alert alert-success text-primary m-0 alert-dismissible alert-dismissible fade show" data-bs-dismiss="alert" id="registro-success" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
             <?= $_SESSION['edit'] ?>
         </div>
         <hr style="margin: .0%; border-color: rgb(0, 61, 125); opacity: 1; border-width: 12px;">
@@ -53,19 +55,22 @@
             <input class="form-control bg-secondary-subtle" id="name" name="nameUs" type="text" value="<?php echo htmlspecialchars($_SESSION['user_name']); ?>" aria-label="readonly input example" readonly required>
             <label for="tel">Teléfono</label>
             <input class="form-control bg-secondary-subtle" id="tel" name="telUs" type="text" value="<?php echo htmlspecialchars($_SESSION['user_tel']); ?>" aria-label="readonly input example" readonly required>
-            <label for="tel">Dir</label>
+            <label for="tel">Direccón</label>
             <input class="form-control bg-secondary-subtle" id="dir" name="dirUs" type="text" value="<?php echo htmlspecialchars($_SESSION['user_dir']); ?>" aria-label="readonly input example" readonly required>
-            <label for="pass" hidden>Contraseña</label>
-            <input class="form-control bg-secondary-subtle" id="pass" name="passUs" type="password" value="<?php echo htmlspecialchars($_SESSION['user_pass']); ?>" aria-label="readonly input example" hidden required>
+            <label for="pass4" hidden>Cambiar contraseña</label>
+            <input class="form-control bg-secondary-subtle" id="pass4" name="pass4" type="text" value="" aria-label="readonly input example" hidden readonly>
+            <label for="pass" hidden>Ingrese la clave actual</label>
+            <input class="form-control bg-secondary-subtle" id="pass" name="passUs" type="text" value="" aria-label="readonly input example" hidden readonly required>
+
             <div class="form-check form-switch">
                 <input class="form-check-input mt-3 m-2" type="checkbox" role="switch" onchange="toggleEdit(this)" id="flexSwitchCheckDefault">
                 <label class="form-check-label mt-3 m-2" for="flexSwitchCheckDefault">Editar informacion</label>
             </div>
             <div class="row"></div>
-            <button class="btn col-auto btn-outline-success m-2" type="submit">Guardar cambios</button>
+            <button class="btn col-auto btn-outline-success m-2" id="submit" type="submit" hidden>Guardar cambios</button>
             <a class="btn col-auto btn-outline-warning m-2" href="../index.php">Volver</a>
         </form>
-        <a class="btn btn-danger m-3" href="../controllers/delete.php" type="button" disabled>Borrar cuenta</a>
+        <a class="btn btn-danger m-2" href="../controllers/delete.php" type="button" disabled>Borrar cuenta</a>
     </div>
     <!-- funcion para switch --------------------------------------------------------------------------->
     <script>
@@ -77,23 +82,26 @@
                 originalValues[inputs[i].id] = inputs[i].value;
             }
         }
-
         function toggleEdit(checkbox) {
-            var inputs = document.querySelectorAll('.form-control');
+    var inputs = document.querySelectorAll('.form-control');
+    var submitButton = document.getElementById('submit');
+    
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].readOnly = !checkbox.checked;
 
-            for (var i = 0; i < inputs.length; i++) {
-                inputs[i].readOnly = !checkbox.checked;
-                if (!checkbox.checked) {
-                    inputs[i].value = originalValues[inputs[i].id];
-
-                }
-                if (inputs[i].id === 'pass') {
-                    inputs[i].hidden = !checkbox.checked;
-                    document.querySelector('label[for="pass"]').hidden = !checkbox.checked;
-                }
-            }
+        if (!checkbox.checked) {
+            inputs[i].value = originalValues[inputs[i].id];
         }
+        if (inputs[i].id === 'pass' || inputs[i].id === 'pass4') {
+            inputs[i].hidden = !checkbox.checked;
+            document.querySelector('label[for="pass"]').hidden = !checkbox.checked;
+            document.querySelector('label[for="pass4"]').hidden = !checkbox.checked;
+        }
+    }
+    submitButton.hidden = !checkbox.checked;
+}
         window.onload = saveOriginalValues;
+
     </script>
 </body>
 <!--Footer---------------------------------------------------------------------------------------------->

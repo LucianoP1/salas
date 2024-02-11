@@ -51,6 +51,7 @@
 <!--Footer---------------------------------------------------------------------------------------------->
     <footer>
       <div class="card bg-primary-subtle fixed-bottom">
+      <hr style="margin: 0%; border-color: rgb(0, 61, 125); opacity: 1; border-width: 12px;">
         <div class="card-body text-success">
           
           <p class="card-text text-secondary"><a href="../Nosotros/acercaDe.html" class="link-offset-2 link-secondary link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-0-hover">Acerca de</a></p>
